@@ -1,0 +1,32 @@
+# GitHub Actions Workflow for Token Payments
+name: Process Token Payments
+
+on:
+  issues:
+    types: [opened, edited]
+  schedule:
+    - cron: '*/5 * * * *'  # Every 5 minutes
+  workflow_dispatch:
+
+jobs:
+  verify_and_grant:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check for new payments
+        run: |
+          python3 scripts/ton_monitor.py --check-payments
+          
+      - name: Grant tokens to verified users
+        run: |
+          python3 scripts/token_manager.py --grant-tokens
+
+  monthly-distribution:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Distribute tokens based on usage
+        run: |
+          python3 scripts/token_manager.py --distribute-monthly
