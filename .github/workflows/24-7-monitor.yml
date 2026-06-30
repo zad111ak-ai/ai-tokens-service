@@ -1,0 +1,35 @@
+# .github/workflows/24-7-monitor.yml
+name: 24/7 Payment Monitor
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Every 5 minutes
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  check-payments:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: pip install aiohttp aiosqlite
+        
+      - name: Check TON payments
+        env:
+          TON_API_KEY: ${{ secrets.TON_API_KEY }}
+        run: |
+          mkdir -p ~/.tokens
+          # Download latest DB snapshot
+          curl -sL https://raw.githubusercontent.com/zad111ak-ai/ai-tokens-service/main/data/tokens.db 2>/dev/null > ~/.tokens/tokens.db || true
+          python3 scripts/ton_monitor.py --check-only
+          
+      - name: Upload DB snapshot
+        run: |
+          curl -X PUT -T ~/.tokens/tokens.db https://api.github.com/repos/zad111ak-ai/ai-tokens-service/contents/data/tokens.db \
+            -H "Authorization: token ***" \
+            -H "Accept: application/vnd.github.v3+json"
