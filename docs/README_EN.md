@@ -1,56 +1,67 @@
-# AI Tokens Service - English Documentation
+# AI Tokens Service 💎
 
-## Overview
-Automated cryptocurrency payment system for AI model access with GitHub Sponsors integration.
+**AI Model Monetization Service via TON (The Open Network)**
 
-## Features
-- Accept TON/USDT payments through Telegram bot
-- Automatic token distribution to users
-- Smart load balancer for cost optimization
-- Integration with OmniRoute and Hermes
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![CI](https://github.com/zad111ak-ai/ai-tokens-service/actions/workflows/token-payments.yml/badge.svg)](https://github.com/zad111ak-ai/ai-tokens-service/actions)
 
-## Quick Start
+## 🎯 What is it?
+
+A ready-to-use solution for selling AI model access through crypto payments:
+
+- **Users** pay TON → receive an API key
+- **You** earn on every generation
+- **200+ models** via OmniRoute (DeepSeek, Llama, Mistral, GPT, and more)
+
+## 🔧 How It Works
+
+```
+User → Telegram Bot → TON Payment → API Key → Model Access
+```
+
+| Component | Purpose |
+|-----------|---------|
+| 🤖 `telegram_bot.py` | User UI: plans, payment, keys |
+| 💰 `ton_monitor.py` | Listens to TON blockchain, credits payments |
+| 🔑 `token_manager.py` | Issues/revokes API keys (SQLite) |
+| 🔄 `omniroute_proxy.py` | Proxy to 200+ models via OmniRoute |
+
+## 🚀 Quick Start
+
 ```bash
-# Clone repository
+# 1. Clone
 git clone https://github.com/zad111ak-ai/ai-tokens-service.git
 cd ai-tokens-service
 
-# Install dependencies
+# 2. Install dependencies
 pip install -r requirements.txt
 
-# Configure tokens
+# 3. Configure
 cp .env.example .env
-# Fill TELEGRAM_BOT_TOKEN and TON_WALLET
+# Set TELEGRAM_BOT_TOKEN, TON_API_KEY
 
-# Start system
-python scripts/token_manager.py
-python scripts/telegram_bot.py
+# 4. Run
+chmod +x scripts/start.sh
+./scripts/start.sh
 ```
 
-## Token Tiers
-- **Basic (1 TON)**: 10,000 tokens
-- **Pro (5 TON)**: 60,000 tokens
-- **Enterprise (10 TON)**: 250,000 tokens
+## 📊 Pricing Plans
 
-Tokens = API requests (1 token ≈ 15 characters output)
+| Plan | Tokens | Price (TON) | Models |
+|------|--------|------------|--------|
+| Start | 1000 | 0.5 | Basic |
+| Pro | 10000 | 3 | All |
+| Enterprise | 100000 | 20 | All + Priority |
 
-## Architecture Flow
+## 🏗 24/7 No Server Needed
 
-```
-User → Telegram Bot → Payment Verification → Token Granting → AI Model Access
-                ↘ GitHub Actions (automated processing)
-```
+GitHub Actions checks payments every 5 minutes — no dedicated server required.
 
-## Integration Points
-- **OmniRoute**: Token-gated API endpoints
-- **Hermes Agent**: Custom model routing
-- **Telegram Bot API**: Payment processing
-- **TON API**: Transaction monitoring
+## 📚 Documentation
 
-## API Endpoints
-- `POST /api/balance` - Check user token balance
-- `POST /api/grant` - Grant tokens after payment
-- `GET /api/models` - Available models by tier
+- [Русская версия](../README.md)
+- [API Reference](API.md)
 
-## License
-MIT License - Free for personal and commercial use
+## 📜 License
+
+MIT — use freely.
