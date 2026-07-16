@@ -1,45 +1,21 @@
-# AI Tokens Service
+MIT License
 
-Автоматическая система монетизации доступа к AI моделям через TON платежи.
+Copyright (c) 2026 zad111ak-ai
 
-## 🎯 Что это?
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-- Прием TON/USDT через Telegram бота
-- Автоматическая выдача токенов API доступа
-- Прокси к 200+ моделям через OmniRoute
-- Работает 24/7 через GitHub Actions (бесплатно)
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-## 💰 Тарифы
-
-| Тариф | Цена | Токенов | Модели |
-|-------|------|---------|--------|
-| Basic | 1 TON | 10,000 | Бесплатные (DeepSeek, Groq) |
-| Pro | 5 TON | 50,000 | Все кроме Claude/O1 |
-| Enterprise | 10+ TON | 100,000+ | Все модели включая Claude |
-
-## 🚀 Быстрый старт
-
-```bash
-# Клонировать
-git clone https://github.com/zad111ak-ai/ai-tokens-service.git
-
-# Установить
-pip install -r requirements.txt
-
-# Настроить .env
-cp .env.example .env
-# Заполнить TELEGRAM_BOT_TOKEN, TON_API_KEY
-
-# Запустить
-python scripts/telegram_bot.py
-```
-
-## 📚 Документация
-
-- [API Reference](./docs/API.md)
-- [English README](./docs/README_EN.md)
-
-## 🔐 Безопасность
-
-- API ключи шифруются в SQLite
-- Токены с expir... [OUTPUT TRUNCATED - 820 chars omitted]
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
