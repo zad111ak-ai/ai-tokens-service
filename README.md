@@ -6,6 +6,8 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![CI](https://github.com/zad111ak-ai/ai-tokens-service/actions/workflows/token-payments.yml/badge.svg)](https://github.com/zad111ak-ai/ai-tokens-service/actions)
+[![GitHub stars](https://img.shields.io/github/stars/zad111ak-ai/ai-tokens-service?style=social)](https://github.com/zad111ak-ai/ai-tokens-service)
+[![GitHub contributors](https://img.shields.io/github/contributors/zad111ak-ai/ai-tokens-service)](https://github.com/zad111ak-ai/ai-tokens-service/graphs/contributors)
 
 ---
 
