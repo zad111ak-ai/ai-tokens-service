@@ -1,0 +1,45 @@
+# AI Tokens Service
+
+Автоматическая система монетизации доступа к AI моделям через TON платежи.
+
+## 🎯 Что это?
+
+- Прием TON/USDT через Telegram бота
+- Автоматическая выдача токенов API доступа
+- Прокси к 200+ моделям через OmniRoute
+- Работает 24/7 через GitHub Actions (бесплатно)
+
+## 💰 Тарифы
+
+| Тариф | Цена | Токенов | Модели |
+|-------|------|---------|--------|
+| Basic | 1 TON | 10,000 | Бесплатные (DeepSeek, Groq) |
+| Pro | 5 TON | 50,000 | Все кроме Claude/O1 |
+| Enterprise | 10+ TON | 100,000+ | Все модели включая Claude |
+
+## 🚀 Быстрый старт
+
+```bash
+# Клонировать
+git clone https://github.com/zad111ak-ai/ai-tokens-service.git
+
+# Установить
+pip install -r requirements.txt
+
+# Настроить .env
+cp .env.example .env
+# Заполнить TELEGRAM_BOT_TOKEN, TON_API_KEY
+
+# Запустить
+python scripts/telegram_bot.py
+```
+
+## 📚 Документация
+
+- [API Reference](./docs/API.md)
+- [English README](./docs/README_EN.md)
+
+## 🔐 Безопасность
+
+- API ключи шифруются в SQLite
+- Токены с expir... [OUTPUT TRUNCATED - 820 chars omitted]
